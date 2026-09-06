@@ -1,12 +1,11 @@
+const cookieParser = require('cookie-parser');
 const express=require('express');
 const app=express();
-const authrouter=require("./route/auth.route");
-const postrouter=require("./route/posts.route");
-const cookieparser=require("cookie-parser");
-app.use(express.json());
-app.use(cookieparser());
-app.use("/api/auth",authrouter);
-app.use("/api/posts",postrouter);
+const authroute=require("./route/auth.route")
+const musicroute=require("./route/music.route")
+app.use(express.json())
+app.use(cookieParser())
+
+app.use("/api/auth",authroute)
+app.use("/api/music",musicroute)
 module.exports=app;
-
-
